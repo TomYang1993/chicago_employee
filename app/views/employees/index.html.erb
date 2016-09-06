@@ -1,0 +1,56 @@
+<h1>Chicago City Employees</h1>
+
+<div ng-app="app">
+  <div ng-controller="employeesCtrl" >
+    <table style="width:100%">
+  <tr>
+    <th>Name
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Dropdown
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#" ng-click="ascendOrder('name')" > Ascending </a></li>
+          <li><a href="#" ng-click="descendOrder('name')"> Descending</a></li>
+        </ul>
+      </div>
+  </th>
+    <th>Department
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Dropdown
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#" ng-click="ascendOrder('department')" > Ascending </a></li>
+          <li><a href="#" ng-click="descendOrder('department')"> Descending</a></li>
+        </ul>
+      </div>
+    </th>
+    <th>Position Title</th>
+    <th>Annual average salary
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Dropdown
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#" ng-click="ascendOrder('employee_annual_salary')" > Ascending </a></li>
+          <li><a href="#" ng-click="descendOrder('employee_annual_salary')"> Descending</a></li>
+        </ul>
+      </div>
+    </th>
+  </tr>
+  <tr ng-repeat="employee in employees | orderBy:orderAttribute:isReverse">
+    <td>{{employee.name}}</td>
+    <td>{{employee.department}}</td>
+    <td>{{employee.job_titles}}</td>
+    <td>${{employee.employee_annual_salary}}</td>
+  </tr>
+
+</table>
+
+
+  </div>
+</div>
